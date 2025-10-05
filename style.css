@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  overflow: hidden; /* Sprečava skrolovanje */
+}
+
+body {
+ max-height: 100vh;
+  padding: 32px 80px;
+  font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+nav > h1 {
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0;
+}
+
+nav > ul {
+  display: flex;
+  gap: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* Flip animacija linkova u nav-u */
+a {
+  display: inline-block;
+  font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  perspective: 1000px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.flip-wrapper {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+a:hover .flip-wrapper {
+  transform: rotateX(-90deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: rotateX(0deg) translateZ(20px);
+}
+
+.back {
+  transform: rotateX(90deg) translateZ(20px);
+}
+
+/* Gallery stilovi */
+.gallery {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  overflow-x: auto;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+} 
+
+.gallery::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.gallery-item {
+  width: 500px;
+  flex-shrink: 0;
+}
+
+.image-container {
+  width: 100%;
+  height: 370px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000; /* crna pozadina ako se učitava */
+  transition: transform 0.8s ease;
+  border-radius: 3%;
+}
+
+video {
+  pointer-events: none;
+}
+.caption {
+  margin-top: 24px;
+  font-size: 18px;
+  text-align: left;
+}
+
+/* Razmak sekcije */
+section {
+  margin-top: 80px;
+}
+
+/* Horizontalna linija */
+.solid {
+  border-top: 1.5px solid black;
+  margin: 50px 0;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+footer .left-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .left-links ul li:not(:last-child) {
+  margin-right: 32px;
+}
+
+footer .right-text {
+  font-size: 24px;
+}

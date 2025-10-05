@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontakt</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <nav>
+    <h1>Sandra Milosevic</h1>
+
+    <!-- hamburger dugme – pojavljuje se samo na tablet/telefon -->
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <div class="flip-wrapper">
+            <span class="front">Home</span>
+            <span class="back">Home</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="flip-wrapper">
+            <span class="front">About</span>
+            <span class="back">About</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="flip-wrapper">
+            <span class="front">Contact</span>
+            <span class="back">Contact</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <hr class="solid" />
+
+  <main class="contact">
+    <div class="left">
+      <h1>GET IN<br>TOUCH</h1>
+      <p>
+        +1 (688) 448-8846<br>
+        HENRY@ASHFORD.COM<br>
+        T.ME/HENRYASHFORD
+      </p>
+    </div>
+
+    <div class="right">
+      <h2>LET’S DISCUSS<br>YOUR PROJECT</h2>
+      <form>
+        <input type="text" placeholder="FULL NAME" required>
+        <div class="row">
+          <input type="email" placeholder="EMAIL" required>
+          <input type="tel" placeholder="PHONE">
+        </div>
+        <select required>
+          <option value="" disabled selected>SELECT A SERVICE</option>
+          <option>Web Design</option>
+          <option>Branding</option>
+          <option>Other</option>
+        </select>
+        <textarea placeholder="HOW CAN I HELP YOU?"></textarea>
+        <button type="submit">SEND</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="left-links">
+      <ul>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="right-text">© 2025 Sandra Milosevic</div>
+  </footer>
+
+  <script>
+    const btn = document.querySelector('.hamburger');
+    const menu = document.querySelector('.nav-links');
+    btn.addEventListener('click', () => menu.classList.toggle('active'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Neue Montreal','Helvetica Neue',sans-serif;
+  font-weight: 500;
+  background: #fff;
+  color: #000;
+}
+
+/* -------- NAVIGATION -------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 80px;
+  width: 100%;
+}
+nav > h1 {
+  font-weight: 500;
+  font-size: 18px;
+}
+nav > ul.nav-links {
+  display: flex;
+  gap: 80px;
+  list-style: none;
+}
+nav > ul.nav-links li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  perspective: 1000px;
+}
+.flip-wrapper {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+nav a:hover .flip-wrapper {
+  transform: rotateX(-90deg);
+}
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+}
+.front { transform: rotateX(0deg) translateZ(20px); }
+.back  { transform: rotateX(90deg) translateZ(20px); }
+
+.solid {
+  border-top: 1.5px solid black;
+  margin: 30px 0;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: #000;
+  border-radius: 2px;
+}
+
+/* -------- MAIN CONTACT -------- */
+main.contact {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+  flex: 1;
+}
+.left, .right {
+  flex: 1;
+  padding: 40px;
+}
+.left h1 {
+  font-size: 60px;
+  line-height: 1;
+  margin-bottom: 40px;
+}
+.left p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+.right h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+form input,
+form select,
+form textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.row {
+  display: flex;
+  gap: 20px;
+}
+form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+form button {
+  align-self: flex-start;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+form button:hover {
+  background: #333;
+}
+
+/* -------- FOOTER -------- */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  border-top: 1px solid #ddd;
+}
+footer .left-links ul {
+  display: flex;
+  list-style: none;
+}
+footer .left-links ul li:not(:last-child) {
+  margin-right: 32px;
+}
+footer .right-text {
+  font-size: 18px;
+}
+
+/* -------- LAYOUT: DESKTOP -------- */
+/* Na desktopu sve staje u jedan ekran bez skrola */
+@media (min-width: 1024px) {
+  html, body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  body {
+    /* rasporedi nav + main + footer u celokupnu visinu ekrana */
+    display: flex;
+    flex-direction: column;
+  }
+  main.contact {
+    flex: 1;
+    overflow: hidden;
+  }
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 1023px) {
+  html, body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto; /* dozvoljeno skrolovanje */
+  }
+  nav {
+    padding: 20px;
+  }
+  nav > ul.nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  nav > ul.nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+  main.contact {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+  .row {
+    flex-direction: column;
+  }
+  footer {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+}
