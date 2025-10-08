@@ -146,8 +146,8 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
   box-sizing: border-box;
+  padding: 24px 80px 48px 80px;
 }
 
 footer .left-links ul {
@@ -163,4 +163,54 @@ footer .left-links ul li:not(:last-child) {
 
 footer .right-text {
   font-size: 24px;
+}
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  nav ul.show {
+    display: flex;
+    background-color: rgba(9, 12, 24, 0.95);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Footer responsive */
+  .solid {
+    margin: 24px 0;
+  }
+  footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px 48px 20px;
+    text-align: center;
+  }
+  footer .left-links ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+  footer .left-links ul li:not(:last-child) {
+    margin-right: 0;
+  }
+  footer .right-text {
+    margin-top: 16px;
+  }
 }
