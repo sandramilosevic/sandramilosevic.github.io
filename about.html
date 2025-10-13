@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="stylesheet" href="about.css">
-<title>About</title>
-  <script src="java.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="about.css">
+  <title>About</title>
 </head>
 <body>
-  <!DOCTYPE html> 
-  <nav>
+  <nav id="navbar">
     <h1>Sandra Milošević</h1>
-    <ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
       <li>
-        <a href="#">
+        <a href="index.html">
+          <div class="flip-wrapper">
+            <div class="front">Home</div>
+            <div class="back">Home</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
           <div class="flip-wrapper">
             <div class="front">About</div>
             <div class="back">About</div>
@@ -21,7 +32,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="contact.html">
           <div class="flip-wrapper">
             <div class="front">Contact</div>
             <div class="back">Contact</div>
@@ -32,26 +43,43 @@
   </nav>
 
   <main class="profile" role="main" aria-labelledby="profile-heading">
-    <img class="avatar" src="profile.jpg" alt="Profile photo">
+    <img class="avatar" src="slikeMockup/profilna.jpeg" alt="Profile photo">
     <p id="profile-heading" class="lead">
-      I'm a <strong>designer</strong> based in <span class="muted">London</span>, working worldwide. 
-      Most days, it's just me and my <strong class="muted">sidekick</strong>, bringing ideas to life 
-      and turning them into purposeful <span class="muted">designs</span>.
+      I’m a junior designer from , focused on branding and UI/UX, exploring how subtle design can make a strong impression.
     </p>
   </main>
 
   <hr class="solid" />
 
-  <footer>
+ <footer>
     <div class="left-links">
       <ul>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/sandra-milo%C5%A1evi%C4%87-0ba053332/">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank">Email</a></li>
       </ul>
     </div>
     <div class="right-text">Made in Serbia</div>
   </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      navbar.classList.toggle("open");
+      // Uklonjena linija: hamburger.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
-

@@ -3,23 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Axon</title>
+  <title>Movix</title>
   <link rel="stylesheet" href="movix.css">
 </head>
 <body>
   <nav id="navbar">
     <h1>Sandra Milošević</h1>
-
-    <!-- Hamburger dugme -->
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-
     <ul id="nav-links">
       <li>
-        <a href="#">
+        <a href="index.html">
           <div class="flip-wrapper">
             <div class="front">Home</div>
             <div class="back">Home</div>
@@ -27,7 +24,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="about.html">
           <div class="flip-wrapper">
             <div class="front">About</div>
             <div class="back">About</div>
@@ -35,7 +32,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="contact.html">
           <div class="flip-wrapper">
             <div class="front">Contact</div>
             <div class="back">Contact</div>
@@ -47,14 +44,17 @@
 
   <img src="slikeMockup/Movix.png" alt="Movix project" class="full-page-image">
 
-  <hr class="solid" />
+  <a href="https://www.figma.com/proto/tmhPpNSAFkqQobPJVB8JSy/Movix?node-id=168-364&t=zgWWnb19TPQwXjND-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=168%3A86&show-proto-sidebar=1" target="_blank">
+    View interactive prototype
+  </a>
 
-  <footer>
+  <hr class="solid" />
+ <footer>
     <div class="left-links">
       <ul>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/sandra-milo%C5%A1evi%C4%87-0ba053332/">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank">Email</a></li>
       </ul>
     </div>
     <div class="right-text">Made in Serbia</div>
@@ -77,7 +77,7 @@
     // Hamburger toggle
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("show");
-      navbar.classList.toggle("open"); // dodajemo klasu open kad se klikne hamburger
+      navbar.classList.toggle("open");
     });
   </script>
 </body>

@@ -1,41 +1,138 @@
-/* RESET */
+/* =====================
+   RESET
+===================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html, body {
-  width: 100%;
   height: 100%;
-  font-family: 'Neue Montreal','Helvetica Neue',sans-serif;
-  font-weight: 500;
-  background: #fff;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+  font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
   color: #000;
 }
 
-/* -------- NAVIGATION -------- */
-nav {
+/* =====================
+   CENTRIRANJE VERTIKALNO, SKROZ LEVO
+===================== */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 80px;
+  padding-right: 20px;
+}
+
+.contact-container {
+  margin: 0;
+}
+
+h1 {
+  font-size: 120px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+a.email {
+  display: block;
+  font-size: 24px;
+  color: #000;
+  text-decoration: underline;
+  margin-bottom: 40px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 80px;
-  width: 100%;
+  box-sizing: border-box;
+  color: #0B0908;
+  padding: 24px 80px 48px 80px;
+  font-weight: bold;
 }
-nav > h1 {
-  font-weight: 500;
+
+footer a {
+  color: #0B0908;
+  font-weight: bold;
   font-size: 18px;
 }
-nav > ul.nav-links {
+
+footer .left-links ul {
   display: flex;
-  gap: 80px;
   list-style: none;
 }
-nav > ul.nav-links li a {
+
+footer .left-links ul li:not(:last-child) {
+  margin-right: 32px;
+}
+
+footer .right-text {
+  font-size: 24px;
+}
+
+/* =====================
+   NAVIGACIJA
+===================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #000;
+  z-index: 10;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+  background: transparent;
+  flex-wrap: wrap;
+}
+
+nav.scrolled {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav.open {
+  background-color: #fff;
+}
+
+nav h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  align-items: center;
+}
+
+a {
+  display: inline-block;
+  font-weight: bold;
   text-decoration: none;
   color: #000;
   font-size: 18px;
-  perspective: 1000px;
 }
+
+/* Flip animacija */
 .flip-wrapper {
   position: relative;
   width: 100px;
@@ -43,10 +140,13 @@ nav > ul.nav-links li a {
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
 }
-nav a:hover .flip-wrapper {
+
+a:hover .flip-wrapper {
   transform: rotateX(-90deg);
 }
-.front, .back {
+
+.front,
+.back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -55,171 +155,119 @@ nav a:hover .flip-wrapper {
   justify-content: center;
   backface-visibility: hidden;
 }
-.front { transform: rotateX(0deg) translateZ(20px); }
-.back  { transform: rotateX(90deg) translateZ(20px); }
 
-.solid {
-  border-top: 1.5px solid black;
-  margin: 30px 0;
+.front {
+  transform: rotateX(0deg) translateZ(20px);
 }
 
-/* HAMBURGER */
+.back {
+  transform: rotateX(90deg) translateZ(20px);
+}
+
+/* =====================
+   HAMBURGER
+===================== */
 .hamburger {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 18px;
-  background: none;
-  border: none;
   cursor: pointer;
-  padding: 0;
+  gap: 5px;
+  z-index: 11;
 }
+
 .hamburger span {
+  display: block;
+  width: 25px;
   height: 3px;
-  width: 100%;
-  background: #000;
+  background-color: #000;
   border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-/* -------- MAIN CONTACT -------- */
-main.contact {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 80px;
-  flex: 1;
-}
-.left, .right {
-  flex: 1;
-  padding: 40px;
-}
-.left h1 {
-  font-size: 60px;
-  line-height: 1;
-  margin-bottom: 40px;
-}
-.left p {
-  font-size: 18px;
-  line-height: 1.8;
-}
-.right h2 {
-  font-size: 28px;
-  margin-bottom: 40px;
-  line-height: 1.2;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-form input,
-form select,
-form textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  color: #000;
-  padding: 10px 0;
-  font-size: 16px;
-}
-.row {
-  display: flex;
-  gap: 20px;
-}
-form textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-form button {
-  align-self: flex-start;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-form button:hover {
-  background: #333;
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
-/* -------- FOOTER -------- */
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 80px;
-  border-top: 1px solid #ddd;
-}
-footer .left-links ul {
-  display: flex;
-  list-style: none;
-}
-footer .left-links ul li:not(:last-child) {
-  margin-right: 32px;
-}
-footer .right-text {
-  font-size: 18px;
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
 }
 
-/* -------- LAYOUT: DESKTOP -------- */
-/* Na desktopu sve staje u jedan ekran bez skrola */
-@media (min-width: 1024px) {
-  html, body {
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  body {
-    /* rasporedi nav + main + footer u celokupnu visinu ekrana */
-    display: flex;
-    flex-direction: column;
-  }
-  main.contact {
-    flex: 1;
-    overflow: hidden;
-  }
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* -------- RESPONSIVE -------- */
-@media (max-width: 1023px) {
-  html, body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto; /* dozvoljeno skrolovanje */
-  }
+/* =====================
+   LINIJA I FOOTER
+===================== */
+.solid {
+  border-top: 1.5px solid #000;
+  margin: 24px 0 32px;
+  width: 100%;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
   nav {
-    padding: 20px;
+    padding: 20px 20px;
   }
-  nav > ul.nav-links {
+  h1 {
+    font-size: 64px;
+  }
+  a.email {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  nav ul {
     display: none;
     flex-direction: column;
     gap: 20px;
-    background: #fff;
+    width: 100%;
     position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
+    top: 100%;
+    left: 0;
+    padding: 20px 0;
+    text-align: center;
   }
-  nav > ul.nav-links.active {
+  nav ul.show {
     display: flex;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   }
   .hamburger {
     display: flex;
   }
-  main.contact {
-    flex-direction: column;
-    padding: 40px 20px;
-  }
-  .row {
-    flex-direction: column;
-  }
   footer {
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    align-items: center;
+    padding: 24px 20px 48px 20px;
+    text-align: center;
+  }
+  footer .left-links ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+  footer .left-links ul li:not(:last-child) {
+    margin-right: 0;
+  }
+  footer .right-text {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 80px 24px 16px 24px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  a.email {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 20px;
   }
 }

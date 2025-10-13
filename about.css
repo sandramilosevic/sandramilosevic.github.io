@@ -1,116 +1,112 @@
-* {
-   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-height: 100vh;
-  overflow: hidden; /* Sprečava skrolovanje */
-}
-
-/* Profile blok */
-.profile {
-  width: min(420px, 30vw);
-  margin-left: 33.333%;
-  padding-top: 64px;
-  padding-bottom: 24px;
-}
-
-.avatar {
-  display: block;
-  width: 160px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.lead {
-  margin-top: 18px;
-  font-size: 20px;
-  line-height: 1.45;
-  color: #0f0f0f;
-  max-width: 100%;
-}
-.lead strong { font-weight: 700; }
-.lead .muted { color: #8b8b8b; font-weight: 500; }
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .profile {
-    margin-left: 22%;
-    width: min(420px, 44vw);
-    padding-top: 48px;
-  }
-  .avatar { width: 140px; height: 180px; }
-  .lead   { font-size: 18px; }
-}
-@media (max-width: 600px) {
-  .profile {
-    margin-left: 6%;
-    width: 88%;
-    padding-top: 32px;
-  }
-  .avatar { width: 120px; height: 160px; }
-  .lead   { font-size: 16px; }
-}
-
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
-  height: 100vh;
-  overflow: hidden; /* Sprečava skrolovanje */
+  height: 100%;
+  margin: 0;
 }
 
 body {
- max-height: 100vh;
-  padding: 32px 80px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
   font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
-  font-weight: 500;
-  margin: 0;
-  box-sizing: border-box;
+  color: #000;
+  overflow-x: hidden; /* dozvoljava vertikalni skrol */
 }
 
-/* NAV */
-nav {
+/* GLAVNI SADRŽAJ */
+main.profile {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 120px;
+  padding-bottom: 24px;
+  width: min(900px, 30vw);
+  margin-left: 33.333%;
+}
+
+/* FOOTER */
+footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  color: #0B0908;
+  padding: 24px 80px 48px 80px;
+  font-weight: bold;
 }
 
-nav > h1 {
-  font-weight: 500;
+footer a {
+  color: #0B0908;
+  font-weight: bold;
   font-size: 18px;
-  margin: 0;
 }
 
-nav > ul {
+footer .left-links ul {
   display: flex;
-  gap: 80px;
-  margin: 0;
-  padding: 0;
-}
-
-li {
   list-style: none;
 }
 
-/* Flip animacija linkova u nav-u */
-a {
-  display: inline-block;
-  font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
-  font-weight: 500;
-  perspective: 1000px;
-  text-decoration: none;
-  color: black;
+footer .left-links ul li:not(:last-child) {
+  margin-right: 32px;
+}
+
+footer .right-text {
+  font-size: 24px;
+}
+
+/* NAVIGACIJA */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #000;
+  z-index: 10;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+  background: transparent;
+  flex-wrap: wrap;
+}
+
+nav.scrolled {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav.open {
+  background-color: #fff;
+}
+
+nav h1 {
   font-size: 18px;
 }
 
+nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  align-items: center;
+}
+
+a {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+}
+
+/* Flip animacija */
 .flip-wrapper {
   position: relative;
   width: 100px;
@@ -142,38 +138,123 @@ a:hover .flip-wrapper {
   transform: rotateX(90deg) translateZ(20px);
 }
 
-
-/* Razmak sekcije */
-main {
-  margin-top: 80px;
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 11;
 }
 
-/* Horizontalna linija */
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* PROFILE BLOK */
+.profile {
+  width: min(900px, 30vw);
+  margin-left: 33.333%;
+  padding-top: 120px;
+  padding-bottom: 24px;
+}
+
+.profile .lead {
+  font-size: clamp(20px, 2.6vw, 30px);
+  line-height: 1.5;
+  margin-top: 18px;
+}
+
+.avatar {
+  display: block;
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.lead strong { font-weight: 700; }
+.lead .muted { color: #8b8b8b; font-weight: 500; }
+
+/* LINIJA */
 .solid {
-  border-top: 1.5px solid black;
-  margin: 50px 0;
+  border-top: 1.5px solid #000;
+  margin: 24px 0 32px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Footer */
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
+@media (max-width: 768px) {
+    nav {
+    padding: 20px 20px;
+  }
+
+  .profile .lead {
+    font-size: 18px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  nav ul.show {
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  footer {
+    flex-direction: column;       /* vertikalno */
+    align-items: center;          /* centrirano horizontalno */
+    padding: 24px 20px 48px 20px;
+    text-align: center;
+  }
+
+  footer .left-links ul {
+    flex-direction: column;       /* linkovi jedan ispod drugog */
+    gap: 16px;                    /* razmak između linkova */
+    align-items: center;          /* centrirano horizontalno */
+    margin: 0;                    /* ukloni bilo kakve margine koje pomeraju levo */
+  }
+
+  footer .left-links ul li:not(:last-child) {
+    margin-right: 0;              /* ukloni desnu marginu da ne pomera linkove */
+  }
+
+  footer .right-text {
+    margin-top: 16px;             /* razmak između linkova i teksta */
+  }
 }
 
-footer .left-links ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+@media (max-width: 480px) {
+  .container {
+    padding: 80px 24px 16px 24px;
+  }
 
-footer .left-links ul li:not(:last-child) {
-  margin-right: 32px;
-}
+  h1 {
+    font-size: 32px;
+  }
 
-footer .right-text {
-  font-size: 24px;
+  h2 {
+    font-size: 20px;
+  }
 }

@@ -3,92 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kontakt</title>
+  <title>Contact</title>
   <link rel="stylesheet" href="contact.css" />
 </head>
 <body>
-  <nav>
-    <h1>Sandra Milosevic</h1>
-
-    <!-- hamburger dugme – pojavljuje se samo na tablet/telefon -->
-    <button class="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <ul class="nav-links">
+   <nav>
+    <h1>Sandra Milošević</h1>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
       <li>
-        <a href="#">
+        <a href="index.html">
           <div class="flip-wrapper">
-            <span class="front">Home</span>
-            <span class="back">Home</span>
+            <div class="front">Home</div>
+            <div class="back">Home</div>
           </div>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="about.html">
           <div class="flip-wrapper">
-            <span class="front">About</span>
-            <span class="back">About</span>
+            <div class="front">About</div>
+            <div class="back">About</div>
           </div>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="contact.html">
           <div class="flip-wrapper">
-            <span class="front">Contact</span>
-            <span class="back">Contact</span>
+            <div class="front">Contact</div>
+            <div class="back">Contact</div>
           </div>
         </a>
       </li>
     </ul>
   </nav>
 
+  <!-- Wrapper za vertikalno centriranje -->
+  <div class="content-wrapper">
+    <div class="contact-container">
+      <h1>GET IN TOUCH</h1>
+      <a class="email" href="mailto:smilosevic892@gmail.com">smilosevic892@gmail.com</a>
+      <a class="email" href="tel:+381616163482">+38161-61-63-482</a>
+      <a class="email" href="#">@sacadesign</a>
+    </div>
+  </div>
+
   <hr class="solid" />
-
-  <main class="contact">
-    <div class="left">
-      <h1>GET IN<br>TOUCH</h1>
-      <p>
-        +1 (688) 448-8846<br>
-        HENRY@ASHFORD.COM<br>
-        T.ME/HENRYASHFORD
-      </p>
-    </div>
-
-    <div class="right">
-      <h2>LET’S DISCUSS<br>YOUR PROJECT</h2>
-      <form>
-        <input type="text" placeholder="FULL NAME" required>
-        <div class="row">
-          <input type="email" placeholder="EMAIL" required>
-          <input type="tel" placeholder="PHONE">
-        </div>
-        <select required>
-          <option value="" disabled selected>SELECT A SERVICE</option>
-          <option>Web Design</option>
-          <option>Branding</option>
-          <option>Other</option>
-        </select>
-        <textarea placeholder="HOW CAN I HELP YOU?"></textarea>
-        <button type="submit">SEND</button>
-      </form>
-    </div>
-  </main>
-
-  <footer>
+ <footer>
     <div class="left-links">
       <ul>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/sandra-milo%C5%A1evi%C4%87-0ba053332/">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank">Email</a></li>
       </ul>
     </div>
-    <div class="right-text">© 2025 Sandra Milosevic</div>
+    <div class="right-text">Made in Serbia</div>
   </footer>
 
+
   <script>
-    const btn = document.querySelector('.hamburger');
-    const menu = document.querySelector('.nav-links');
-    btn.addEventListener('click', () => menu.classList.toggle('active'));
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    // Skrol efekat
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        document.querySelector("nav").classList.add("scrolled");
+      } else {
+        document.querySelector("nav").classList.remove("scrolled");
+      }
+    });
+
+    // Hamburger toggle
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      hamburger.classList.toggle("active");
+    });
   </script>
 </body>
 </html>

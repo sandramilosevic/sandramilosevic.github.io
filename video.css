@@ -1,0 +1,406 @@
+/* =====================
+   RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fefefe;
+    font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
+  color: #0B0908;
+}
+
+/* =====================
+   NAVIGACIJA
+===================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 80px; /* smanjen padding za proporcionalnost */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #0B0908;
+  z-index: 10;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+  background: transparent;
+  flex-wrap: wrap;
+}
+
+nav.scrolled {
+  background: #fefefe;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav.open {
+background-color: #fefefe;
+}
+
+nav h1 {
+  font-size: 18px; /* smanjen font */
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 40px; /* smanjen gap da ne bude preširoko */
+  list-style: none;
+  align-items: center;
+}
+
+a {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0B0908;
+  font-size: 18px;
+}
+
+/* Flip animacija */
+.flip-wrapper {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+a:hover .flip-wrapper {
+  transform: rotateX(-90deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: rotateX(0deg) translateZ(20px);
+}
+
+.back {
+  transform: rotateX(90deg) translateZ(20px);
+}
+
+/* Hamburger dugme */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #0B0908;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* =====================
+   SOLID LINE
+===================== */
+.solid {
+  border-top: 1.5px solid #0B0908;
+  margin: 24px 0 32px; /* smanjen razmak iznad i ispod */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  font-family:  Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  color: #0B0908;
+  padding: 24px 80px 48px 80px;
+    font-weight: bold;
+}
+
+footer a {
+  color: #0B0908;
+  font-weight: bold;
+    font-family:  Helvetica, sans-serif;
+}
+
+footer .left-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .left-links ul li:not(:last-child) {
+  margin-right: 32px;
+}
+
+footer .right-text {
+  font-size: 24px;
+}
+
+/* =====================
+   KONTEJNER I TEKST
+===================== */
+.container {
+
+  margin: 0 auto;
+  padding: 120px 80px 24px 80px;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 56px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 56px;
+}
+
+/* =====================
+   IMAGE GRID
+===================== */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+}
+
+/* =====================
+   PDF LINK
+===================== */
+.pdf-link {
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0B0908;
+  margin-top: 56px;
+  margin-bottom: 56px;
+}
+
+.pdf-link:hover {
+  text-decoration: underline;
+}
+
+/* =====================
+   VIDEO
+===================== */
+.video-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 56px;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  color: white;
+  border: none;
+  font-size: 72px;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.mute-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: opacity 0.3s;
+}
+
+.mute-button img {
+  width: 28px;
+  height: 28px;
+}
+
+.mute-button:hover img {
+  opacity: 0.7;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  @media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  nav ul.show {
+    display: flex;
+    background-color: #fefefe;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+  .container {
+    padding: 80px 40px 16px 40px;
+  }
+
+  h1 {
+    font-size: 40px;
+    margin-bottom: 56px; /* povećan razmak od nav */
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pdf-link {
+    font-size: 20px;
+  }
+
+  .mute-button img {
+    width: 24px;
+    height: 24px;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  nav ul.show {
+    display: flex;
+    background-color: #fefefe;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .solid {
+    margin: 0px 0 24px; /* smanjen razmak između poslednje sekcije i linije */
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px 48px 20px;
+    text-align: center;
+  }
+
+  footer .left-links ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  footer .left-links ul li:not(:last-child) {
+    margin-right: 0;
+  }
+
+  footer .right-text {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 80px 24px 16px 24px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skincare Serum Promo Video</title>
+  <link rel="stylesheet" href="video.css">
+</head>
+<body>
+  <nav id="navbar">
+    <h1>Sandra Milošević</h1>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
+      <li>
+        <a href="index.html">
+          <div class="flip-wrapper">
+            <div class="front">Home</div>
+            <div class="back">Home</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <div class="flip-wrapper">
+            <div class="front">About</div>
+            <div class="back">About</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <div class="flip-wrapper">
+            <div class="front">Contact</div>
+            <div class="back">Contact</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h1>Skincare Serum Promo Video</h1>
+
+    <section>
+      <h2>Overview</h2>
+      <p>During my internship at Can, our team worked on a group project focused on creating a promotional video for a skincare product. The project simulated a real-world marketing brief, to concept, design, and produce an advertisement for a serum inspired by the minimalist aesthetic of The Ordinary.</p>
+    </section>
+
+    <section>
+      <h2>Goal</h2>
+      <p>The goal was to create a short promotional video that conveys purity, simplicity, and product efficacy through a clean and minimal visual language. The video needed to feel authentic and aligned with the skincare industry's refined visual standards.</p>
+    </section>
+
+    <section>
+      <h2>Process</h2>
+      <p>We started by analyzing The Ordinary’s brand identity: neutral tones, minimalist composition, and a focus on texture and detail.</p>
+      <p>Based on this research, we developed a concept emphasizing natural beauty and transparency, using close-up product shots and smooth transitions to create a calm, refined atmosphere.</p>
+      <p>I was responsible for video editing and assisted during the shoot with lighting setup and shot coordination.</p>
+
+      <div class="image-grid">
+        <img src="slikeMockup/scenario1.png" alt="Storyboard frame 1">
+        <img src="slikeMockup/scenario2.png" alt="Storyboard frame 2">
+        <img src="slikeMockup/scenario3.png" alt="Storyboard frame 3">
+        <img src="slikeMockup/scenario4.png" alt="Storyboard frame 4">
+      </div>
+
+      <a href="https://drive.google.com/file/d/1CNrEox313wYWlzEvoHhHl-ha3LBGZkHJ/view?usp=sharing" class="pdf-link">Full Scenario (PDF)</a>
+    </section>
+
+    <section>
+      <h2>Outcome</h2>
+      <p>The final 25-second video presents the serum application process through a clean, minimalist visual language.</p>
+      <p>Soft natural lighting, macro shots, and slow pacing emphasize texture, transparency, and purity, echoing The Ordinary’s recognizable aesthetic.</p>
+    </section>
+
+    <section class="video-section">
+      <h2>Promo Video</h2>
+      <div class="video-container">
+        <video id="myVideo" preload="metadata">
+          <source src="slikeMockup/ordVideo.mp4" type="video/mp4">
+          Error.
+        </video>
+        <button id="playButton" class="play-button">▶</button>
+        <button id="muteButton" class="mute-button">
+          <img id="muteIcon" src="slikeMockup/volume.png" alt="Mute/Unmute">
+        </button>
+      </div>
+    </section>
+
+    <section class="last-section">
+      <h2>Reflection</h2>
+      <p>Working on this project as part of a creative team helped me understand the importance of collaboration and clear communication throughout the production process.</p>
+      <p>I learned how to adapt my work to complement others' roles, from filming to editing, and how teamwork contributes to achieving a consistent and polished final result.</p>
+    </section>
+  </main>
+
+  <hr class="solid" />
+ <footer>
+    <div class="left-links">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/sandra-milo%C5%A1evi%C4%87-0ba053332/">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank">Email</a></li>
+      </ul>
+    </div>
+    <div class="right-text">Made in Serbia</div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    // Skrol efekat
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Hamburger toggle
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      navbar.classList.toggle("open");
+    });
+
+    const video = document.getElementById('myVideo');
+    const playButton = document.getElementById('playButton');
+    const muteButton = document.getElementById('muteButton');
+    const muteIcon = document.getElementById('muteIcon');
+
+    // Play dugme
+    playButton.addEventListener('click', () => {
+      if (video.paused) {
+        video.muted = false;
+        video.play();
+        playButton.style.display = 'none';
+        muteIcon.src = 'slikeMockup/volume.png';
+      }
+    });
+
+    // Klik na video — pauza/play
+    video.addEventListener('click', () => {
+      if (!video.paused) {
+        video.pause();
+        playButton.style.display = 'block';
+      } else {
+        video.play();
+        playButton.style.display = 'none';
+      }
+    });
+
+    // Mute/Unmute
+    muteButton.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteIcon.src = video.muted ? 'slikeMockup/mute.png' : 'slikeMockup/volume.png';
+    });
+  </script>
+</body>
+</html>

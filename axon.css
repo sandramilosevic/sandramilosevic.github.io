@@ -10,7 +10,7 @@
 body {
   background-color: #090C18;
   font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
-  color:#D1E885;
+  color: #D1E885;
 }
 
 /* =====================
@@ -24,18 +24,20 @@ body {
 
 /* =====================
    NAVIGACIJA
+   (padding, font-size i weight USKLAĐENI sa prvim fajlom;
+    boje ostavljene tvoje)
 ===================== */
 nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 32px 80px;
+  padding: 20px 80px; /* TAČNO kao u prvom fajlu */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: 500;
-  color: #D1E885;
+  font-weight: bold; /* TAČNO kao u prvom fajlu */
+  color: #D1E885; /* tvoja boja ostaje */
   z-index: 10;
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
   background: transparent;
@@ -57,24 +59,25 @@ nav.open {
   -webkit-backdrop-filter: none;
 }
 
-/* Tekst i linkovi */
+/* Naslov i linkovi - TAČNE vrednosti iz prvog fajla */
 nav h1 {
   font-size: 18px;
+  margin: 0;
 }
 
 nav ul {
   display: flex;
-  gap: 80px;
+  gap: 40px; /* TAČNO kao u prvom fajlu */
   list-style: none;
   align-items: center;
 }
 
 a {
   display: inline-block;
-  font-weight: 500;
+  font-weight: bold; /* TAČNO kao u prvom fajlu */
   text-decoration: none;
-  color: #D1E885;
-  font-size: 18px;
+  color: #D1E885; /* tvoja boja */
+  font-size: 18px; /* TAČNO kao u prvom fajlu */
 }
 
 /* Flip animacija */
@@ -131,21 +134,31 @@ a:hover .flip-wrapper {
 ===================== */
 .solid {
   border-top: 1.5px solid #D1E885;
-  margin: 32px 0;
+  margin: 24px 0 32px; /* TAČNO kao u prvom fajlu */
   width: 100%;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
 }
 
 /* =====================
    FOOTER
+   (padding, font-size i weight USKLAĐENI sa prvim fajlom;
+    boje ostavljene tvoje)
 ===================== */
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding: 24px 80px 48px 80px;
+  padding: 24px 80px 48px 80px; /* TAČNO kao u prvom fajlu */
+  color: #D1E885; /* tvoja boja ostaje */
+  font-weight: bold; /* TAČNO kao u prvom fajlu */
+}
+
+footer a {
+  color: #D1E885; /* tvoja boja */
+  font-weight: bold;
+  font-size: 18px; /* TAČNO kao u prvom fajlu */
 }
 
 footer .left-links ul {
@@ -160,19 +173,45 @@ footer .left-links ul li:not(:last-child) {
 }
 
 footer .right-text {
-  font-size: 24px;
+  font-size: 24px; /* TAČNO kao u prvom fajlu */
+}
+a[href*="figma.com"] {
+  display: block;
+  text-align: center;
+  color: #D1E885;
+  text-decoration: underline;
+  padding-bottom: 80px;
+  font-weight: 500;
+  font-size: 32px;
 }
 
 /* =====================
    RESPONSIVE
+   (padding za nav i footer usklađeni sa prvim fajlom;
+    boje mobilnog menija ostavljene tvoje)
 ===================== */
 @media (max-width: 768px) {
+  .container {
+    /* čuvamo padding ako koristiš .container kao u prvom fajlu */
+    padding: 80px 40px 16px 40px;
+  }
+
   nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 20px; 
   }
+      a[href*="figma.com"] {
+    display: block;
+    text-align: center;
+    color: #D1E885;
+    text-decoration: underline;
+    padding: 32px 0;
+    font-weight: 500;
+    font-size: 24px;
+  }
+
 
   nav ul {
     display: none;
@@ -188,31 +227,43 @@ footer .right-text {
 
   nav ul.show {
     display: flex;
-    background-color: rgba(9, 12, 24, 0.95);
+    background-color: rgba(9, 12, 24, 0.95); /* zadržano iz tvog fajla */
   }
 
   .hamburger {
     display: flex;
   }
 
-  /* Footer responsive */
   .solid {
-    margin: 24px 0;
+    margin: 0px 0 24px; /* TAČNO kao u prvom fajlu (responsive) */
   }
+
   footer {
     flex-direction: column;
     align-items: center;
-    padding: 24px 20px 48px 20px;
+    padding: 24px 20px 48px 20px; /* TAČNO kao u prvom fajlu (responsive) */
     text-align: center;
   }
+
   footer .left-links ul {
     flex-direction: column;
     gap: 16px;
   }
+
   footer .left-links ul li:not(:last-child) {
     margin-right: 0;
   }
+
   footer .right-text {
     margin-top: 16px;
+  }
+}
+
+/* =====================
+   max-width: 480px (iz prvog fajla)
+===================== */
+@media (max-width: 480px) {
+  .container {
+    padding: 80px 24px 16px 24px;
   }
 }

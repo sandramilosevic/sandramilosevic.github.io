@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew</title>
+  <link rel="stylesheet" href="brew.css">
+</head>
+<body>
+  <nav id="navbar">
+    <h1>Sandra Milošević</h1>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
+      <li>
+        <a href="index.html">
+          <div class="flip-wrapper">
+            <div class="front">Home</div>
+            <div class="back">Home</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <div class="flip-wrapper">
+            <div class="front">About</div>
+            <div class="back">About</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <div class="flip-wrapper">
+            <div class="front">Contact</div>
+            <div class="back">Contact</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <img src="slikeMockup/Brew.png" alt="brew project" class="full-page-image">
+
+  <hr class="solid" />
+
+ <footer>
+    <div class="left-links">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/sandra-milo%C5%A1evi%C4%87-0ba053332/">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank">Email</a></li>
+      </ul>
+    </div>
+    <div class="right-text">Made in Serbia</div>
+  </footer>
+
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    // Skrol efekat
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Hamburger toggle
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      navbar.classList.toggle("open"); // boja nav-a kad se otvori
+    });
+  </script>
+</body>
+</html>

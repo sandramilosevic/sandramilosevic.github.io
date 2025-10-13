@@ -1,25 +1,30 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sandra Milošević</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="java.js"></script>
 </head>
 <body>
   <nav>
     <h1>Sandra Milošević</h1>
-    <ul>
-            <li>
-        <a href="#">
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
+      <li>
+        <a href="index.html">
           <div class="flip-wrapper">
             <div class="front">Home</div>
             <div class="back">Home</div>
           </div>
         </a>
+      </li>
       <li>
-        <a href="#">
+        <a href="about.html">
           <div class="flip-wrapper">
             <div class="front">About</div>
             <div class="back">About</div>
@@ -27,7 +32,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="contact.html">
           <div class="flip-wrapper">
             <div class="front">Contact</div>
             <div class="back">Contact</div>
@@ -37,62 +42,199 @@
     </ul>
   </nav>
 
-  <section class="gallery">
-    <div class="gallery-item">
-      <div class="image-container">
-        <a href="Axon.html"></a>
-<video src="Video/video.mp4" muted loop playsinline preload="metadata"></video>
+  <main>
+    <section class="gallery" id="gallery">
+            <div class="gallery-item" data-link="Kinevia.html">
+        <div class="image-container" aria-hidden="false">
+                    <img src="slikeMockup/Kinevia_01-1.png" alt="">
+        </div>
+        <p class="caption">Kinevia, Branding</p>
       </div>
-      <p class="caption">Domestique, Web Design</p>
-    </div>
 
-    <div class="gallery-item">
-      <div class="image-container">
-<video src="Video/pure.mp4" muted loop playsinline preload="metadata"></video>
+      <div class="gallery-item" data-link="PromoVideo.html">
+        <div class="image-container" aria-hidden="false">
+          <video src="slikeMockup/ordVideo.mp4" muted loop playsinline preload="metadata"></video>
+        </div>
+        <p class="caption">Skincare Promo Video, Internship Project</p>
       </div>
-      <p class="caption">Kinevia, logo design</p>
-    </div>
 
-    <div class="gallery-item">
-      <div class="image-container">
-<video src="Video/video.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="gallery-item" data-link="Movix.html">
+        <div class="image-container" aria-hidden="false">
+          <video src="slikeMockup/movix.mp4" muted loop playsinline preload="metadata"></video>
+        </div>
+        <p class="caption">Movix, UI/UX Design</p>
       </div>
-      <p class="caption">Amelia, logo design</p>
-    </div>
-
-    <div class="gallery-item">
-      <div class="image-container">
-<video src="Video/video.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="gallery-item" data-link="Moe.html">
+        <div class="image-container" aria-hidden="false">
+          <img src="slikeMockup/MoeThumbnail.png" alt="">
+        </div>
+        <p class="caption">Moe, Branding</p>
       </div>
-      <p class="caption">Kinevia, logo design</p>
-    </div>
-
-    <div class="gallery-item">
-      <div class="image-container">
-<video src="Video/video.mp4" muted loop playsinline preload="metadata"></video>
+  
+      <div class="gallery-item" data-link="Axon.html">
+        <div class="image-container" aria-hidden="false">
+          <video src="slikeMockup/axon.mp4" muted loop playsinline preload="metadata"></video>
+        </div>
+        <p class="caption">Axon, UI/UX Design</p>
       </div>
-      <p class="caption">Kinevia, logo design</p>
-    </div>
-
-    <div class="gallery-item">
-      <div class="image-container">
-<video src="Video/video.mp4" muted loop playsinline preload="metadata"></video>
+    <div class="gallery-item" data-link="brew.html">
+        <div class="image-container" aria-hidden="false">
+          <img src="slikeMockup/brewSlika.png" alt="">
+        </div>
+        <p class="caption">Brew, Branding</p>
       </div>
-      <p class="caption">Kinevia, logo design</p>
-    </div>
-  </section>
 
-  <hr class="solid" />
 
-  <footer>
+    </section>
+
+    <hr class="solid" />
+  </main>
+
+ <footer>
     <div class="left-links">
       <ul>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/sandra-milo%C5%A1evi%C4%87-0ba053332/">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank">Email</a></li>
       </ul>
     </div>
     <div class="right-text">Made in Serbia</div>
   </footer>
+
+
+  <script>
+    // Hamburger meni - samo prikaz/skrivanje, bez X animacije
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    });
+
+    // GALLERY FUNKCIJE
+    (function () {
+      const gallery = document.getElementById('gallery');
+      if (!gallery) return;
+
+      const DEFAULT_LEFT_OFFSET = 80;
+      let isWheelAnimating = false;
+      let wheelTimer = null;
+
+      function withAutoScrollBehavior(fn) {
+        const prev = gallery.style.scrollBehavior;
+        gallery.style.scrollBehavior = 'auto';
+        fn();
+        requestAnimationFrame(() => {
+          gallery.style.scrollBehavior = prev || 'smooth';
+        });
+      }
+
+      function initWheelScroll() {
+        const style = getComputedStyle(gallery);
+        const isColumn = style.flexDirection === 'column';
+        if (isColumn) return; // Na mobilnom, ne blokiramo scroll
+
+        gallery.style.scrollBehavior = 'smooth';
+        gallery.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          const delta = e.deltaY;
+          if (Math.abs(delta) < 8) return;
+
+          const item = gallery.querySelector('.gallery-item');
+          const gap = parseInt(style.gap || 16, 10) || 16;
+          const itemW = (item ? item.getBoundingClientRect().width : 300) + gap;
+          const direction = Math.sign(delta);
+
+          if (!gallery.classList.contains('no-initial-offset')) {
+            if (isWheelAnimating) return;
+            isWheelAnimating = true;
+            clearTimeout(wheelTimer);
+
+            const target = Math.max(0, gallery.scrollLeft + direction * itemW);
+            gallery.scrollTo({ left: target, behavior: 'smooth' });
+
+            wheelTimer = setTimeout(() => {
+              if (gallery.scrollLeft > 10) {
+                withAutoScrollBehavior(() => {
+                  gallery.scrollLeft = gallery.scrollLeft + DEFAULT_LEFT_OFFSET;
+                });
+                gallery.classList.add('no-initial-offset');
+              }
+              isWheelAnimating = false;
+            }, 420);
+            return;
+          }
+
+          if (isWheelAnimating) return;
+          isWheelAnimating = true;
+          const target = Math.max(0, gallery.scrollLeft + direction * itemW);
+          gallery.scrollTo({ left: target, behavior: 'smooth' });
+
+          wheelTimer = setTimeout(() => {
+            isWheelAnimating = false;
+          }, 380);
+        }, { passive: false });
+      }
+
+      function initOffsetToggle() {
+        function updateOffsetOnReturn() {
+          if ((gallery.scrollLeft || 0) <= 10 && gallery.classList.contains('no-initial-offset')) {
+            withAutoScrollBehavior(() => {
+              gallery.scrollLeft = Math.max(0, gallery.scrollLeft - DEFAULT_LEFT_OFFSET);
+            });
+            gallery.classList.remove('no-initial-offset');
+          }
+        }
+
+        gallery.addEventListener('scroll', updateOffsetOnReturn, { passive: true });
+        window.addEventListener('resize', updateOffsetOnReturn);
+      }
+
+      function initClickableItems() {
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          const link = item.dataset.link;
+          const container = item.querySelector('.image-container');
+          if (!container) return;
+
+          container.setAttribute('tabindex', '0');
+          container.setAttribute('role', 'link');
+          container.style.cursor = 'pointer';
+
+          container.addEventListener('click', (e) => {
+            if (!link) return;
+            if (e.ctrlKey || e.metaKey) window.open(link, '_blank');
+            else window.location.href = link;
+          });
+
+          container.addEventListener('keydown', (e) => {
+            if ((e.key === 'Enter' || e.key === ' ') && link) {
+              e.preventDefault();
+              window.location.href = link;
+            }
+          });
+        });
+      }
+
+      function initVideoHover() {
+        const videos = document.querySelectorAll('.image-container video');
+        videos.forEach(video => {
+          const parent = video.parentElement;
+          parent.addEventListener('mouseenter', () => { video.play().catch(()=>{}); });
+          parent.addEventListener('mouseleave', () => { video.pause(); });
+        });
+      }
+
+      function initAll() {
+        initWheelScroll();
+        initOffsetToggle();
+        initClickableItems();
+        initVideoHover();
+      }
+
+      document.addEventListener('DOMContentLoaded', initAll);
+    })();
+  </script>
 </body>
 </html>

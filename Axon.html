@@ -9,17 +9,14 @@
 <body>
   <nav id="navbar">
     <h1>Sandra Milošević</h1>
-
-    <!-- Hamburger dugme -->
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-
     <ul id="nav-links">
       <li>
-        <a href="#">
+        <a href="index.html">
           <div class="flip-wrapper">
             <div class="front">Home</div>
             <div class="back">Home</div>
@@ -27,7 +24,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="about.html">
           <div class="flip-wrapper">
             <div class="front">About</div>
             <div class="back">About</div>
@@ -35,7 +32,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="contact.html">
           <div class="flip-wrapper">
             <div class="front">Contact</div>
             <div class="back">Contact</div>
@@ -47,14 +44,18 @@
 
   <img src="slikeMockup/Axon.png" alt="Axon project" class="full-page-image">
 
+  <a href="https://www.figma.com/proto/VXj2Nnz83HMDoRzXu7VUYT/Teretana-aplikacija?node-id=234-322&starting-point-node-id=7%3A3&t=y1bAKQO5rGbv1P5s-1" target="_blank">
+    View interactive prototype
+  </a>
+
   <hr class="solid" />
 
-  <footer>
+ <footer>
     <div class="left-links">
       <ul>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/sandra-milo%C5%A1evi%C4%87-0ba053332/">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank">Email</a></li>
       </ul>
     </div>
     <div class="right-text">Made in Serbia</div>
@@ -77,7 +78,7 @@
     // Hamburger toggle
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("show");
-      navbar.classList.toggle("open"); // dodajemo klasu open kad se klikne hamburger
+      navbar.classList.toggle("open");
     });
   </script>
 </body>
