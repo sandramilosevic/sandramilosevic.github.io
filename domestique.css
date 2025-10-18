@@ -1,0 +1,282 @@
+/* domestique.css - CELO PREPISANO (Neue Montreal + 8px grid + responsiv fsize i razmak) */
+
+/* ---------- FONT ---------- */
+@font-face {
+  font-family: 'Neue Montreal';
+  src: local('Neue Montreal'),
+       local('NeueMontreal'),
+       url('/fonts/NeueMontreal-Regular.woff2') format('woff2'),
+       url('/fonts/NeueMontreal-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Medium.woff2') format('woff2'),
+       url('/fonts/NeueMontreal-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-SemiBold.woff2') format('woff2'),
+       url('/fonts/NeueMontreal-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- VARIABLES ---------- */
+:root{
+  --bg: #131112;
+  --text: #FFFCF8;
+  --side-margin: 80px;
+  --section-gap: 120px;
+  --grid: 8px;
+}
+
+/* ---------- RESET ---------- */
+*{ box-sizing: border-box; margin:0; padding:0; }
+html,body{
+  height:100%;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-text-size-adjust:100%;
+  font-family: 'Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  width:100%;
+  height:100vh;
+  background-image: url("slikeMockup/glowing laptop mockup.png");
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+/* ---------- MAIN ---------- */
+main{
+  margin: var(--section-gap) var(--side-margin) 0;
+}
+
+/* ---------- ABOUT ---------- */
+.about{
+  display:flex;
+  align-items:stretch;
+  gap: calc(var(--grid) * 8);
+  margin-bottom: var(--section-gap);
+}
+.about-text{
+  width:50%;
+  font-size:24px;
+  font-weight:300;
+  line-height:1.7;
+  font-family: 'Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+}
+.about-text h2{
+  font-weight:600;
+  font-size:64px;
+  margin-bottom: calc(var(--grid) * 3);
+}
+.about-image{
+  width:50%;
+  display:flex;
+  justify-content:flex-end;
+}
+.about-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ---------- WORK PROCESS ---------- */
+.work-process{
+  margin-bottom: var(--section-gap);
+}
+.work-process h2{
+  font-weight:600;
+  font-size:64px;
+  margin-bottom: calc(var(--grid) * 5);
+}
+.process-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--grid) * 8);
+}
+.process-item h3{
+  font-weight:600;
+  font-size:64px;
+  margin-bottom: calc(var(--grid) * 1.5);
+}
+.process-item p{
+  font-size:24px;
+  font-weight:300;
+  line-height:1.6;
+}
+
+/* ---------- FULL IMAGE ---------- */
+.full-image{
+  margin-top: var(--section-gap);
+  margin-bottom: 0;
+  display:flex;
+  flex-direction:column;
+  gap: calc(var(--grid) * 12); /* 96px */
+}
+.full-image img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding: calc(var(--grid)*2.5) var(--side-margin); /* 20px 80px */
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+  color:var(--text);
+  z-index:10;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+  background: transparent;
+}
+nav.scrolled{
+  background-color: #131112;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+nav.open{ background-color: #131112; }
+nav h1{ font-size:18px; margin:0; }
+nav ul{ display:flex; gap: calc(var(--grid)*5); list-style:none; align-items:center; }
+a{ display:inline-block; font-weight:bold; text-decoration:none; color:var(--text); font-size:18px; }
+
+/* ---------- FLIP ---------- */
+.flip-wrapper{
+  position:relative;
+  width: calc(var(--grid) * 12.5); /* 100px */
+  height: calc(var(--grid) * 5); /* 40px */
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+a:hover .flip-wrapper{ transform: rotateX(-90deg); }
+.front, .back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backface-visibility:hidden;
+}
+.front{ transform: rotateX(0deg) translateZ(20px); }
+.back{ transform: rotateX(90deg) translateZ(20px); }
+
+/* ---------- HAMBURGER ---------- */
+.hamburger{ display:none; flex-direction:column; cursor:pointer; gap: calc(var(--grid)*0.625); } /* 5px */
+.hamburger span{ display:block; width: calc(var(--grid)*3.125); height: calc(var(--grid)*0.375); background-color:var(--text); border-radius:2px; transition:0.3s; }
+
+/* ---------- LINK: OPEN IN FIGMA ---------- */
+a[href*="figma.com"]{
+  display:block;
+  text-align:center;
+  color:var(--text);
+  text-decoration:underline;
+  padding: calc(var(--grid)*1.5) 0;  /* 12px */
+  font-family: 'Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-weight:600;
+  font-size: calc(var(--grid)*5); /* 40px desktop */
+  line-height:1.2;
+}
+.full-image + a[href*="figma.com"]{
+  margin-top: calc(var(--grid)*25); /* 200px desktop */
+}
+
+/* ---------- LINE ---------- */
+.solid{
+  border-top:1.5px solid var(--text);
+  margin: calc(var(--grid)*3) 0 calc(var(--grid)*8); /* 24px 0 64px VEĆI razmak od slike */
+  width:100%;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--text);
+  padding: calc(var(--grid)*3) var(--side-margin) calc(var(--grid)*6) var(--side-margin); /* 24px 80px 48px 80px */
+  font-weight:bold;
+}
+footer a{ color:var(--text); font-weight:bold; font-size:18px; font-family: 'Neue Montreal', 'Helvetica Neue', Arial, sans-serif; }
+footer .left-links ul{ display:flex; list-style:none; gap: calc(var(--grid)*4); } /* 32px */
+footer .right-text{ font-size:24px; }
+
+/* ======================
+   RESPONSIVE
+   ====================== */
+@media (max-width:1000px){
+  :root{ --section-gap: 56px; }
+  main{ margin: calc(var(--grid)*4) calc(var(--grid)*4) 0; } /* 32px 32px */
+  nav{ background-color:#131112; padding: calc(var(--grid)*2.5); } /* 20px */
+  .hero{ padding-top: calc(var(--grid)*12.5); height:60vh; } /* 100px */
+
+  nav ul{ display:none; flex-direction:column; gap: calc(var(--grid)*2); width:100%; position:absolute; top:100%; left:0; padding: calc(var(--grid)*2) 0; text-align:center; }
+  nav ul.show{ display:flex; background-color:#131112; }
+  .hamburger{ display:flex; }
+
+  .about{ flex-direction:column; gap: calc(var(--grid)*4); } /* 32px */
+  .about-text, .about-image{ width:100%; }
+  .about-image img{ height:auto; }
+
+  .process-grid{ grid-template-columns:1fr; gap: calc(var(--grid)*4); } /* 32px */
+  .process-item h3{ font-size:32px; }
+  .process-item p{ font-size:16px; }
+
+  .full-image{
+    gap: calc(var(--grid)*7); /* 56px */
+    margin-bottom: var(--section-gap);
+  }
+
+  .full-image + a[href*="figma.com"]{
+    margin-top: calc(var(--grid)*6); /* 48px SMANJENO */
+    font-size: calc(var(--grid)*4); /* 32px SMANJENO */
+  }
+
+  footer{
+    flex-direction:column;
+    gap: calc(var(--grid)*4); /* 32px */
+    padding: calc(var(--grid)*3) calc(var(--grid)*4) calc(var(--grid)*4) calc(var(--grid)*4); /* 24 32 32 32 */
+    text-align:center;
+  }
+  footer .left-links ul{ flex-direction:column; gap: calc(var(--grid)*2); } /* 16px */
+  footer .right-text{ font-size:18px; }
+}
+
+@media (max-width:768px){
+  main{ margin:0 calc(var(--grid)*3) 0; } /* 0 24px */
+  .about-text h2, .work-process h2{ font-size:40px; }
+  .process-item h3{ font-size:28px; }
+  .process-item p, .about-text{ font-size:18px; }
+  a[href*="drive.google.com"]{ display:block; text-align:center; color:var(--text); text-decoration:underline; padding:0; font-weight:500; font-size:24px; }
+  .full-image + a[href*="figma.com"]{ margin-top: calc(var(--grid)*5); } /* 40px */
+  a[href*="figma.com"]{ font-size: calc(var(--grid)*4); } /* 32px */
+}
+
+@media (max-width:480px){
+  main{ margin:0 calc(var(--grid)*2) 0; } /* 0 16px */
+  .about-text h2, .work-process h2{ font-size:28px; }
+  .process-item h3{ font-size:24px; }
+  .process-item p, .about-text{ font-size:16px; }
+  .full-image{ gap: calc(var(--grid)*4); } /* 32px */
+  .full-image + a[href*="figma.com"]{ margin-top: calc(var(--grid)*4); } /* 32px */
+  a[href*="figma.com"]{ font-size: calc(var(--grid)*3); } /* 24px */
+}

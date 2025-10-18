@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Domestique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="domestique.css">
+</head>
+<body>
+  <nav id="navbar">
+    <h1>Sandra Milošević</h1>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
+      <li>
+        <a href="index.html">
+          <div class="flip-wrapper">
+            <div class="front">Home</div>
+            <div class="back">Home</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <div class="flip-wrapper">
+            <div class="front">About</div>
+            <div class="back">About</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <div class="flip-wrapper">
+            <div class="front">Contact</div>
+            <div class="back">Contact</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="hero" role="banner"></header>
+
+  <main>
+    <section class="about">
+      <div class="about-text">
+        <h2>ABOUT THE BRAND</h2>
+        <p>Domestique is a furniture brand focused on timeless design, craftsmanship, and comfort. Each piece is created to tell a story and bring warmth, balance, and personality into any space.</p>
+        <p>The collection blends modern minimalism with classic elegance, offering furniture that feels both refined and inviting. Inspired by everyday living and the beauty of simplicity, Domestique seeks to create interiors that reflect authenticity and emotional connection.</p>
+        <p>Through attention to materials, form, and detail, every design is made to elevate the atmosphere of a home while remaining functional and enduring.</p>
+      </div>
+      <div class="about-image">
+        <img src="slikeMockup/slika (2).png" alt="About Domestique">
+      </div>
+    </section>
+
+    <section class="work-process">
+      <h2>WORK PROCESS</h2>
+      <div class="process-grid">
+        <article class="process-item">
+          <h3>01 ANALYSIS</h3>
+          <p>Project goals, target audience and user needs are analyzed to define the foundation.</p>
+        </article>
+        <article class="process-item">
+          <h3>02 PROTOTYPE</h3>
+          <p>A wireframe or prototype is created to visualize structure and user flow.</p>
+        </article>
+        <article class="process-item">
+          <h3>03 DESIGN</h3>
+          <p>The visual identity (colors, typography, aesthetics) is defined and refined.</p>
+        </article>
+        <article class="process-item">
+          <h3>04 LAYOUT</h3>
+          <p>Content and interface elements are arranged to ensure clear structure and usability.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="full-image">
+      <img src="slikeMockup/Rectangle 6 (2).png" alt="Full width image">
+      <img src="slikeMockup/Frame 49.png" alt="Full width image">
+      <img src="slikeMockup/Rectangle 8 (2).png" alt="Full width image">
+      <img src="slikeMockup/Frame 105.png" alt="Full width image">
+      <img src="slikeMockup/Rectangle 7 (2).png" alt="Full width image">
+    </section>
+  </main>
+
+   <a href="https://www.figma.com/proto/kQw9shK3o3Tk6RrK2kEpAO/Domestique?node-id=1-2&t=T17KgFJlbuDGu2qI-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2" target="_blank">
+    Open in Figma
+  </a>
+
+  <hr class="solid" />
+
+  <footer>
+    <div class="left-links">
+      <ul>
+        <li><a href="www.linkedin.com/in/sandra-milošević">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank">Email</a></li>
+      </ul>
+    </div>
+    <div class="right-text">Made in Serbia</div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      navbar.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
