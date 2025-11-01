@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sandra Milošević</title>
-<link rel="stylesheet" href="style.20251013.css" />
+  <link rel="stylesheet" href="style.20251013.css" />
 </head>
+
 <body>
   <nav>
     <h1>Sandra Milošević</h1>
@@ -44,9 +46,9 @@
 
   <main>
     <section class="gallery" id="gallery">
-            <div class="gallery-item" data-link="Kinevia.html">
+      <div class="gallery-item" data-link="Kinevia.html">
         <div class="image-container" aria-hidden="false">
-                    <img src="slikeMockup/Kinevia_01-1.png" alt="">
+          <img src="slikeMockup/Kinevia_01-1.png" alt="">
         </div>
         <p class="caption">Kinevia, Branding</p>
       </div>
@@ -58,33 +60,33 @@
         <p class="caption">Skincare Promo Video, Internship Project</p>
       </div>
 
-            <div class="gallery-item" data-link="Movix.html">
+      <div class="gallery-item" data-link="Movix.html">
         <div class="image-container" aria-hidden="false">
           <video src="slikeMockup/movix.mp4" muted loop playsinline preload="metadata"></video>
         </div>
         <p class="caption">Movix, UI/UX Design</p>
       </div>
-            <div class="gallery-item" data-link="Moe.html">
+      <div class="gallery-item" data-link="Moe.html">
         <div class="image-container" aria-hidden="false">
           <img src="slikeMockup/MoeThumbnail.png" alt="">
         </div>
         <p class="caption">Moe, Branding</p>
       </div>
 
-                  <div class="gallery-item" data-link="domestique.html">
+      <div class="gallery-item" data-link="domestique.html">
         <div class="image-container" aria-hidden="false">
           <video src="slikeMockup/video.mp4" muted loop playsinline preload="metadata"></video>
         </div>
         <p class="caption">Domestique, Web Design</p>
       </div>
-  
+
       <div class="gallery-item" data-link="Axon.html">
         <div class="image-container" aria-hidden="false">
           <video src="slikeMockup/axon.mp4" muted loop playsinline preload="metadata"></video>
         </div>
         <p class="caption">Axon, UI/UX Design</p>
       </div>
-    <div class="gallery-item" data-link="brew.html">
+      <div class="gallery-item" data-link="Brew.html">
         <div class="image-container" aria-hidden="false">
           <img src="slikeMockup/brewSlika.png" alt="">
         </div>
@@ -98,15 +100,17 @@
   </main>
 
   <footer>
-  <div class="left-links">
-    <ul>
-      <li><a href="https://www.linkedin.com/in/sandramilosevicc" target="_blank" rel="noopener noreferrer">LinkedIn</a></li> 
-      <li><a href="https://www.instagram.com/sacadesign/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-      <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></li>
-    </ul>
-  </div>
-  <div class="right-text">Made in Serbia</div>
-</footer>
+    <div class="left-links">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/sandramilosevicc" target="_blank"
+            rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/sacadesign/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=smilosevic892@gmail.com" target="_blank"
+            rel="noopener noreferrer">Email</a></li>
+      </ul>
+    </div>
+    <div class="right-text">Made in Serbia</div>
+  </footer>
 
 
   <script>
@@ -228,7 +232,7 @@
         const videos = document.querySelectorAll('.image-container video');
         videos.forEach(video => {
           const parent = video.parentElement;
-          parent.addEventListener('mouseenter', () => { video.play().catch(()=>{}); });
+          parent.addEventListener('mouseenter', () => { video.play().catch(() => { }); });
           parent.addEventListener('mouseleave', () => { video.pause(); });
         });
       }
@@ -244,4 +248,5 @@
     })();
   </script>
 </body>
+
 </html>
