@@ -49,6 +49,7 @@
       <div class="gallery-item" data-link="Kinevia.html">
         <div class="image-container" aria-hidden="false">
           <img src="slikeMockup/Kinevia_01-1.png" alt="">
+          <div class="xray-hover">View</div>
         </div>
         <p class="caption">Kinevia, Branding</p>
       </div>
@@ -56,6 +57,7 @@
       <div class="gallery-item" data-link="PromoVideo.html">
         <div class="image-container" aria-hidden="false">
           <video src="slikeMockup/ordVideo.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="xray-hover">View</div>
         </div>
         <p class="caption">Skincare Promo Video, Internship Project</p>
       </div>
@@ -63,12 +65,15 @@
       <div class="gallery-item" data-link="Movix.html">
         <div class="image-container" aria-hidden="false">
           <video src="slikeMockup/movix.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="xray-hover">View</div>
         </div>
         <p class="caption">Movix, UI/UX Design</p>
       </div>
+
       <div class="gallery-item" data-link="Moe.html">
         <div class="image-container" aria-hidden="false">
           <img src="slikeMockup/MoeThumbnail.png" alt="">
+          <div class="xray-hover">View</div>
         </div>
         <p class="caption">Moe, Branding</p>
       </div>
@@ -76,6 +81,7 @@
       <div class="gallery-item" data-link="domestique.html">
         <div class="image-container" aria-hidden="false">
           <video src="slikeMockup/video.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="xray-hover">View</div>
         </div>
         <p class="caption">Domestique, Web Design</p>
       </div>
@@ -83,17 +89,18 @@
       <div class="gallery-item" data-link="Axon.html">
         <div class="image-container" aria-hidden="false">
           <video src="slikeMockup/axon.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="xray-hover">View</div>
         </div>
         <p class="caption">Axon, UI/UX Design</p>
       </div>
+
       <div class="gallery-item" data-link="Brew.html">
         <div class="image-container" aria-hidden="false">
           <img src="slikeMockup/brewSlika.png" alt="">
+          <div class="xray-hover">View</div>
         </div>
         <p class="caption">Brew, Branding</p>
       </div>
-
-
     </section>
 
     <hr class="solid" />
@@ -112,19 +119,7 @@
     <div class="right-text">Made in Serbia</div>
   </footer>
 
-
   <script>
-    // Hamburger meni - samo prikaz/skrivanje, bez X animacije
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("nav-links");
-
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-      });
-    });
-
-    // GALLERY FUNKCIJE
     (function () {
       const gallery = document.getElementById('gallery');
       if (!gallery) return;
@@ -142,18 +137,20 @@
         });
       }
 
-      function initWheelScroll() {
-        const style = getComputedStyle(gallery);
-        const isColumn = style.flexDirection === 'column';
-        if (isColumn) return; // Na mobilnom, ne blokiramo scroll
+      function isDesktop() {
+        return window.innerWidth > 768;
+      }
 
-        gallery.style.scrollBehavior = 'smooth';
+      function initWheelScroll() {
         gallery.addEventListener('wheel', (e) => {
+          if (!isDesktop()) return;
+
           e.preventDefault();
           const delta = e.deltaY;
           if (Math.abs(delta) < 8) return;
 
           const item = gallery.querySelector('.gallery-item');
+          const style = getComputedStyle(gallery);
           const gap = parseInt(style.gap || 16, 10) || 16;
           const itemW = (item ? item.getBoundingClientRect().width : 300) + gap;
           const direction = Math.sign(delta);
@@ -169,7 +166,7 @@
             wheelTimer = setTimeout(() => {
               if (gallery.scrollLeft > 10) {
                 withAutoScrollBehavior(() => {
-                  gallery.scrollLeft = gallery.scrollLeft + DEFAULT_LEFT_OFFSET;
+                  gallery.scrollLeft = Math.max(0, gallery.scrollLeft + DEFAULT_LEFT_OFFSET);
                 });
                 gallery.classList.add('no-initial-offset');
               }
@@ -191,6 +188,7 @@
 
       function initOffsetToggle() {
         function updateOffsetOnReturn() {
+          if (!isDesktop()) return;
           if ((gallery.scrollLeft || 0) <= 10 && gallery.classList.contains('no-initial-offset')) {
             withAutoScrollBehavior(() => {
               gallery.scrollLeft = Math.max(0, gallery.scrollLeft - DEFAULT_LEFT_OFFSET);
@@ -237,16 +235,53 @@
         });
       }
 
+      function initXrayFollow() {
+        const items = document.querySelectorAll('.gallery-item');
+        items.forEach(item => {
+          const hover = item.querySelector('.xray-hover');
+          const container = item.querySelector('.image-container');
+          if (!hover || !container) return;
+
+          container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            hover.style.left = x + 'px';
+            hover.style.top = y + 'px';
+            hover.style.opacity = '1'; // pokaži kada miš prati
+          });
+
+          container.addEventListener('mouseleave', () => {
+            //  hover.style.left = '50%';
+            //  hover.style.top = '50%';
+            hover.style.opacity = '0'; // sakrij kada miš napusti
+          });
+        });
+      }
+
       function initAll() {
         initWheelScroll();
         initOffsetToggle();
         initClickableItems();
         initVideoHover();
+        initXrayFollow();
       }
 
       document.addEventListener('DOMContentLoaded', initAll);
     })();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('nav ul');
+
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+          navMenu.classList.toggle('show');
+        });
+      }
+    });
   </script>
+
 </body>
 
 </html>

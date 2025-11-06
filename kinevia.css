@@ -31,12 +31,15 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 80px; /* TAČNO kao u prvom fajlu */
+  padding: 32px 80px;
+  /* TAČNO kao u prvom fajlu */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold; /* TAČNO kao u prvom fajlu */
-  color: #fefefe; /* tvoja boja ostaje */
+  font-weight: normal;
+  /* TAČNO kao u prvom fajlu */
+  color: #fefefe;
+  /* tvoja boja ostaje */
   z-index: 10;
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
   background: transparent;
@@ -51,29 +54,36 @@ nav.scrolled {
 
 /* Ova klasa se dodaje kad se klikne hamburger */
 nav.open {
-  background-color: #030202; /* tvoja */
+  background-color: #030202;
+  /* tvoja */
 
 }
 
 /* Naslov i linkovi - TAČNE vrednosti iz prvog fajla */
 nav h1 {
-  font-size: 18px; /* kao u prvom */
+  font-size: 18px;
+  /* kao u prvom */
+  font-weight: normal;
   margin: 0;
 }
 
 nav ul {
   display: flex;
-  gap: 40px; /* kao u prvom */
+  gap: 40px;
+  /* kao u prvom */
   list-style: none;
   align-items: center;
 }
 
 a {
   display: inline-block;
-  font-weight: bold; /* kao u prvom */
+  font-weight: normal;
+  /* kao u prvom */
   text-decoration: none;
-  color: #fefefe; /* tvoja boja */
-  font-size: 18px; /* kao u prvom */
+  color: #fefefe;
+  /* tvoja boja */
+  font-size: 18px;
+  /* kao u prvom */
 }
 
 /* Flip animacija */
@@ -130,8 +140,10 @@ a:hover .flip-wrapper {
    (margine usklađene sa prvim fajlom)
 ===================== */
 .solid {
-  border-top: 1.5px solid #030202; /* tvoja boja linije */
-  margin: 24px 0 32px; /* TAČNO kao u prvom fajlu */
+  border-top: 1.5px solid #030202;
+  /* tvoja boja linije */
+  margin: 24px 0 32px;
+  /* TAČNO kao u prvom fajlu */
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -146,15 +158,20 @@ footer {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  color: #030202; /* tvoja boja teksta */
-  padding: 24px 80px 48px 80px; /* TAČNO kao u prvom fajlu */
-  font-weight: bold; /* TAČNO kao u prvom fajlu */
+  color: #030202;
+  /* tvoja boja teksta */
+  padding: 24px 80px 48px 80px;
+  /* TAČNO kao u prvom fajlu */
+  font-weight: normal;
+  /* TAČNO kao u prvom fajlu */
 }
 
 footer a {
-  color: #030202; /* tvoja boja */
-  font-weight: bold;
-  font-size: 18px; /* TAČNO kao u prvom fajlu */
+  color: #030202;
+  /* tvoja boja */
+  font-weight: normal;
+  font-size: 18px;
+  /* TAČNO kao u prvom fajlu */
 }
 
 footer .left-links ul {
@@ -169,7 +186,8 @@ footer .left-links ul li:not(:last-child) {
 }
 
 footer .right-text {
-  font-size: 24px; /* TAČNO kao u prvom fajlu */
+  font-size: 24px;
+  /* TAČNO kao u prvom fajlu */
 }
 
 /* poseban stil za drive link (ostavljeno kako si imala) */
@@ -197,7 +215,8 @@ a[href*="drive.google.com"] {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px; /* TAČNO kao u prvom fajlu */
+    padding: 20px 20px;
+    /* TAČNO kao u prvom fajlu */
   }
 
   nav ul {
@@ -214,7 +233,8 @@ a[href*="drive.google.com"] {
 
   nav ul.show {
     display: flex;
-    background-color: #030202; /* isto kao u prvom */
+    background-color: #030202;
+    /* isto kao u prvom */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   }
 
@@ -223,13 +243,15 @@ a[href*="drive.google.com"] {
   }
 
   .solid {
-    margin: 0px 0 24px; /* TAČNO kao u prvom fajlu responsive */
+    margin: 0px 0 24px;
+    /* TAČNO kao u prvom fajlu responsive */
   }
 
   footer {
     flex-direction: column;
     align-items: center;
-    padding: 24px 20px 48px 20px; /* TAČNO kao u prvom fajlu responsive */
+    padding: 24px 20px 48px 20px;
+    /* TAČNO kao u prvom fajlu responsive */
     text-align: center;
   }
 

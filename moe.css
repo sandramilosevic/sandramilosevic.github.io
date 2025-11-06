@@ -9,7 +9,7 @@
 
 body {
   background-color: #fefefe;
-    font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
+  font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
   color: #fefefe;
 }
 
@@ -30,11 +30,12 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 80px; /* usklađeno s prvim CSS-om */
+  padding: 32px 80px;
+  /* usklađeno s prvim CSS-om */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
+  font-weight: normal;
   color: #fefefe;
   z-index: 10;
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
@@ -43,7 +44,7 @@ nav {
 }
 
 nav.scrolled {
-   background: rgba(11, 9, 8, 0.9);
+  background: rgba(11, 9, 8, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -58,6 +59,7 @@ nav.open {
 
 nav h1 {
   font-size: 18px;
+  font-weight: normal;
   margin: 0;
 }
 
@@ -70,7 +72,7 @@ nav ul {
 
 a {
   display: inline-block;
-  font-weight: bold;
+  font-weight: normal;
   text-decoration: none;
   color: #fefefe;
   font-size: 18px;
@@ -133,7 +135,7 @@ a:hover .flip-wrapper {
   margin: 24px 0 32px;
   width: 100%;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
 }
 
 /* =====================
@@ -146,13 +148,14 @@ footer {
   box-sizing: border-box;
   color: #0B0908;
   padding: 24px 80px 48px 80px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 footer a {
   color: #0B0908;
-  font-weight: bold;
-  font-size: 18px; /* dodato da bude isto kao u prvom CSS-u */
+  font-weight: normal;
+  font-size: 18px;
+  /* dodato da bude isto kao u prvom CSS-u */
 }
 
 footer .left-links ul {
@@ -167,7 +170,8 @@ footer .left-links ul li:not(:last-child) {
 }
 
 footer .right-text {
-  font-size: 24px; /* ostavljeno kao u prvom CSS-u */
+  font-size: 24px;
+  /* ostavljeno kao u prvom CSS-u */
 }
 
 /* =====================
@@ -179,7 +183,7 @@ footer .right-text {
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px;
-   background: rgba(11, 9, 8, 0.9);
+    background: rgba(11, 9, 8, 0.9);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   }
 
@@ -197,7 +201,7 @@ footer .right-text {
 
   nav ul.show {
     display: flex;
-   background: rgba(11, 9, 8, 0.9);
+    background: rgba(11, 9, 8, 0.9);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   }
 

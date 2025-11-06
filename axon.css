@@ -32,12 +32,15 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 80px; /* TAČNO kao u prvom fajlu */
+  padding: 32px 80px;
+  /* TAČNO kao u prvom fajlu */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold; /* TAČNO kao u prvom fajlu */
-  color: #D1E885; /* tvoja boja ostaje */
+  font-weight: normal;
+  /* TAČNO kao u prvom fajlu */
+  color: #D1E885;
+  /* tvoja boja ostaje */
   z-index: 10;
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
   background: transparent;
@@ -63,21 +66,26 @@ nav.open {
 nav h1 {
   font-size: 18px;
   margin: 0;
+  font-weight: normal;
 }
 
 nav ul {
   display: flex;
-  gap: 40px; /* TAČNO kao u prvom fajlu */
+  gap: 40px;
+  /* TAČNO kao u prvom fajlu */
   list-style: none;
   align-items: center;
 }
 
 a {
   display: inline-block;
-  font-weight: bold; /* TAČNO kao u prvom fajlu */
+  font-weight: normal;
+  /* TAČNO kao u prvom fajlu */
   text-decoration: none;
-  color: #D1E885; /* tvoja boja */
-  font-size: 18px; /* TAČNO kao u prvom fajlu */
+  color: #D1E885;
+  /* tvoja boja */
+  font-size: 18px;
+  /* TAČNO kao u prvom fajlu */
 }
 
 /* Flip animacija */
@@ -134,7 +142,8 @@ a:hover .flip-wrapper {
 ===================== */
 .solid {
   border-top: 1.5px solid #D1E885;
-  margin: 24px 0 32px; /* TAČNO kao u prvom fajlu */
+  margin: 24px 0 32px;
+  /* TAČNO kao u prvom fajlu */
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -150,15 +159,20 @@ footer {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding: 24px 80px 48px 80px; /* TAČNO kao u prvom fajlu */
-  color: #D1E885; /* tvoja boja ostaje */
-  font-weight: bold; /* TAČNO kao u prvom fajlu */
+  padding: 24px 80px 48px 80px;
+  /* TAČNO kao u prvom fajlu */
+  color: #D1E885;
+  /* tvoja boja ostaje */
+  font-weight: normal;
+  /* TAČNO kao u prvom fajlu */
 }
 
 footer a {
-  color: #D1E885; /* tvoja boja */
-  font-weight: bold;
-  font-size: 18px; /* TAČNO kao u prvom fajlu */
+  color: #D1E885;
+  /* tvoja boja */
+  font-weight: normal;
+  font-size: 18px;
+  /* TAČNO kao u prvom fajlu */
 }
 
 footer .left-links ul {
@@ -173,8 +187,10 @@ footer .left-links ul li:not(:last-child) {
 }
 
 footer .right-text {
-  font-size: 24px; /* TAČNO kao u prvom fajlu */
+  font-size: 24px;
+  /* TAČNO kao u prvom fajlu */
 }
+
 a[href*="figma.com"] {
   display: block;
   text-align: center;
@@ -200,9 +216,10 @@ a[href*="figma.com"] {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px; 
+    padding: 20px 20px;
   }
-      a[href*="figma.com"] {
+
+  a[href*="figma.com"] {
     display: block;
     text-align: center;
     color: #D1E885;
@@ -227,7 +244,8 @@ a[href*="figma.com"] {
 
   nav ul.show {
     display: flex;
-    background-color: rgba(9, 12, 24, 0.95); /* zadržano iz tvog fajla */
+    background-color: rgba(9, 12, 24, 0.95);
+    /* zadržano iz tvog fajla */
   }
 
   .hamburger {
@@ -235,13 +253,15 @@ a[href*="figma.com"] {
   }
 
   .solid {
-    margin: 0px 0 24px; /* TAČNO kao u prvom fajlu (responsive) */
+    margin: 0px 0 24px;
+    /* TAČNO kao u prvom fajlu (responsive) */
   }
 
   footer {
     flex-direction: column;
     align-items: center;
-    padding: 24px 20px 48px 20px; /* TAČNO kao u prvom fajlu (responsive) */
+    padding: 24px 20px 48px 20px;
+    /* TAČNO kao u prvom fajlu (responsive) */
     text-align: center;
   }
 

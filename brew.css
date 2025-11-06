@@ -30,11 +30,11 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 80px;
+  padding: 32px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
+  font-weight: normal;
   color: #fefefe;
   z-index: 10;
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
@@ -53,6 +53,7 @@ nav.open {
 nav h1 {
   font-size: 18px;
   margin: 0;
+  font-weight: normal;
 }
 
 nav ul {
@@ -64,7 +65,7 @@ nav ul {
 
 a {
   display: inline-block;
-  font-weight: bold;
+  font-weight: normal;
   text-decoration: none;
   color: #fefefe;
   font-size: 18px;
@@ -138,12 +139,12 @@ footer {
   box-sizing: border-box;
   padding: 24px 80px 48px 80px;
   color: #E79BC0;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 footer a {
   color: #E79BC0;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 18px;
 }
 

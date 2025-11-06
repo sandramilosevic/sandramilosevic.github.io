@@ -9,7 +9,7 @@
 
 body {
   background-color: #fefefe;
-    font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
+  font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
   color: #0B0908;
 }
 
@@ -21,11 +21,12 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 80px; /* smanjen padding za proporcionalnost */
+  padding: 32px 80px;
+  /* smanjen padding za proporcionalnost */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
+  font-weight: normal;
   color: #0B0908;
   z-index: 10;
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
@@ -39,24 +40,26 @@ nav.scrolled {
 }
 
 nav.open {
-background-color: #fefefe;
+  background-color: #fefefe;
 }
 
 nav h1 {
-  font-size: 18px; /* smanjen font */
+  font-size: 18px;
+  /* smanjen font */
   margin: 0;
 }
 
 nav ul {
   display: flex;
-  gap: 40px; /* smanjen gap da ne bude preširoko */
+  gap: 40px;
+  /* smanjen gap da ne bude preširoko */
   list-style: none;
   align-items: center;
 }
 
 a {
   display: inline-block;
-  font-weight: bold;
+  font-weight: normal;
   text-decoration: none;
   color: #0B0908;
   font-size: 18px;
@@ -116,30 +119,31 @@ a:hover .flip-wrapper {
 ===================== */
 .solid {
   border-top: 1.5px solid #0B0908;
-  margin: 24px 0 32px; /* smanjen razmak iznad i ispod */
+  margin: 24px 0 32px;
+  /* smanjen razmak iznad i ispod */
   width: 100%;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
 }
 
 /* =====================
    FOOTER
 ===================== */
 footer {
-  font-family:  Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   color: #0B0908;
   padding: 24px 80px 48px 80px;
-    font-weight: bold;
+  font-weight: normal;
 }
 
 footer a {
   color: #0B0908;
-  font-weight: bold;
-    font-family:  Helvetica, sans-serif;
+  font-weight: normal;
+  font-family: Helvetica, sans-serif;
 }
 
 footer .left-links ul {
@@ -168,7 +172,7 @@ footer .right-text {
 
 h1 {
   font-size: 56px;
-  font-weight: 700;
+  font-weight: normal;
   margin-bottom: 56px;
 }
 
@@ -280,35 +284,37 @@ p {
 ===================== */
 @media (max-width: 768px) {
   @media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding: 20px 0;
-    text-align: center;
+    nav ul {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav ul.show {
+      display: flex;
+      background-color: #fefefe;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .hamburger {
+      display: flex;
+    }
   }
 
-  nav ul.show {
-    display: flex;
-    background-color: #fefefe;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
   .container {
     padding: 80px 40px 16px 40px;
   }
 
   h1 {
     font-size: 40px;
-    margin-bottom: 56px; /* povećan razmak od nav */
+    margin-bottom: 56px;
+    /* povećan razmak od nav */
   }
 
   h2 {
@@ -367,7 +373,8 @@ p {
   }
 
   .solid {
-    margin: 0px 0 24px; /* smanjen razmak između poslednje sekcije i linije */
+    margin: 0px 0 24px;
+    /* smanjen razmak između poslednje sekcije i linije */
   }
 
   footer {

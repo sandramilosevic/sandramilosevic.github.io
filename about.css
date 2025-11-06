@@ -4,7 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
+
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -16,7 +18,8 @@ body {
   background-color: #fff;
   font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
   color: #000;
-  overflow-x: hidden; /* dozvoljava vertikalni skrol */
+  overflow-x: hidden;
+  /* dozvoljava vertikalni skrol */
 }
 
 /* GLAVNI SADRŽAJ */
@@ -38,12 +41,12 @@ footer {
   align-items: center;
   color: #0B0908;
   padding: 24px 80px 48px 80px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 footer a {
   color: #0B0908;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 18px;
 }
 
@@ -66,11 +69,11 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 80px;
+  padding: 32px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
+  font-weight: normal;
   color: #000;
   z-index: 10;
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
@@ -89,6 +92,7 @@ nav.open {
 
 nav h1 {
   font-size: 18px;
+  font-weight: normal;
 }
 
 nav ul {
@@ -100,7 +104,7 @@ nav ul {
 
 a {
   display: inline-block;
-  font-weight: bold;
+  font-weight: normal;
   text-decoration: none;
   color: #000;
   font-size: 18px;
@@ -173,14 +177,20 @@ a:hover .flip-wrapper {
 .avatar {
   display: block;
   width: 160px;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.lead strong { font-weight: 700; }
-.lead .muted { color: #8b8b8b; font-weight: 500; }
+.lead strong {
+  font-weight: 700;
+}
+
+.lead .muted {
+  color: #8b8b8b;
+  font-weight: 500;
+}
 
 /* LINIJA */
 .solid {
@@ -192,7 +202,7 @@ a:hover .flip-wrapper {
 }
 
 @media (max-width: 768px) {
-    nav {
+  nav {
     padding: 20px 20px;
   }
 
@@ -223,25 +233,33 @@ a:hover .flip-wrapper {
   }
 
   footer {
-    flex-direction: column;       /* vertikalno */
-    align-items: center;          /* centrirano horizontalno */
+    flex-direction: column;
+    /* vertikalno */
+    align-items: center;
+    /* centrirano horizontalno */
     padding: 24px 20px 48px 20px;
     text-align: center;
   }
 
   footer .left-links ul {
-    flex-direction: column;       /* linkovi jedan ispod drugog */
-    gap: 16px;                    /* razmak između linkova */
-    align-items: center;          /* centrirano horizontalno */
-    margin: 0;                    /* ukloni bilo kakve margine koje pomeraju levo */
+    flex-direction: column;
+    /* linkovi jedan ispod drugog */
+    gap: 16px;
+    /* razmak između linkova */
+    align-items: center;
+    /* centrirano horizontalno */
+    margin: 0;
+    /* ukloni bilo kakve margine koje pomeraju levo */
   }
 
   footer .left-links ul li:not(:last-child) {
-    margin-right: 0;              /* ukloni desnu marginu da ne pomera linkove */
+    margin-right: 0;
+    /* ukloni desnu marginu da ne pomera linkove */
   }
 
   footer .right-text {
-    margin-top: 16px;             /* razmak između linkova i teksta */
+    margin-top: 16px;
+    /* razmak između linkova i teksta */
   }
 }
 
